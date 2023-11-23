@@ -19,6 +19,7 @@ interface Home {
 export default function HomePage(){
 
   const [responseData, setResponseData] = useState<Home[]>([]);
+  const [responseDataTournament, setResponseDataTournament] = useState<Home[]>([]);
   const [error, setError] = useState();
   const router = useRouter();
  
@@ -48,7 +49,7 @@ export default function HomePage(){
     axios.get('/api/auth/tournament')
     .then(response => {
         console.log("Data fetched:", response.data);
-       (setResponseData(response.data));
+       (setResponseDataTournament(response.data));
        router.refresh()
       })
       .catch(error => {
@@ -99,7 +100,7 @@ export default function HomePage(){
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Tournament</h2>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {responseData.map((tournament)  => (
+          {responseDataTournament.map((tournament)  => (
             <div key={tournament._id} className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-40">
                 <Image  
