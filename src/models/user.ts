@@ -1,7 +1,7 @@
 import { Schema, model, models } from "mongoose";
 
 /**
- * This section defines the schema for a user, specifying various properties like name, lastName, email, password, and isAdmin. It also includes validation rules such as required fields and email format validation. The select: false option for the password field means that the password won't be included in query results by default.
+This section defines the schema for a user, specifying various properties like name, lastName, email, password, and isAdmin. It also includes validation rules such as required fields and email format validation. The select: false option for the password field means that the password won't be included in query results by default.
  */
 
 const UserSchema = new Schema({

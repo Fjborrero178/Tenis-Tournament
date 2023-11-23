@@ -45,13 +45,12 @@ export default function Register() {
       }
       
   }
-  {error && <div className=" rgb-error">{error}</div>}
- 
+  
   return (
 
     <div className="flex items-center justify-center h-fit ">
       <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-      <h1 className="">Login </h1>
+      <h1 className="">Register </h1>
       {error &&  <p className="text-red-800 text-xs italic text-center" >{error}</p>}
         <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2"  >
@@ -97,8 +96,6 @@ export default function Register() {
           <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Register
           </button>
-        
-        
         </div>
       </form>
     </div>

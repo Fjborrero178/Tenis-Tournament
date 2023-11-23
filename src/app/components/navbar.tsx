@@ -49,11 +49,8 @@ export  async function Navbar (){ //navbar
                         <Link href="/login"> Sign In </Link>
 
                         )}
-
-
             </section>
-              </nav>
-              
+              </nav>     
             </main>
           );
         
