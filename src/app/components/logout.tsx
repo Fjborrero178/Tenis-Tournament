@@ -3,9 +3,9 @@ import Link from "next/link";
 import { MouseEvent } from 'react';
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-// Assuming "useClient" is a state or variable you want to watch for changes
 
-export default function SignOutButton() {
+
+export default function SignOutButton() { //Log out
   const router = useRouter();
 
   const handleSignOut = async (event:MouseEvent<HTMLAnchorElement>) => {

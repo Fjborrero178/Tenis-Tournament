@@ -6,8 +6,10 @@ export  async function DELETE(request:NextRequest ,{ params }: { params: { id: s
 
     try{
     await connectDB();
+    // Extract the match ID from the route parameters
         const  id  = params.id;
-        
+    
+        // Find and delete the match from the database
         const deleteMatch = await Match.findByIdAndDelete(id);
         
         // Return the response accordingly

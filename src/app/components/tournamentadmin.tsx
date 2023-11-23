@@ -8,7 +8,7 @@ export default function Tournamentadmin(){
     const router =useRouter()
 
     
-    const handleSubmit = async (event:FormEvent<HTMLFormElement>) =>{
+    const handleSubmit = async (event:FormEvent<HTMLFormElement>) =>{ //post tournament admin
 
       event.preventDefault();
 

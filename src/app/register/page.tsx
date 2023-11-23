@@ -10,13 +10,15 @@ export default function Register() {
 
   const [error, setError] = useState();
   const router = useRouter();
+  // Form submission logic
   const handleSubmit = async (event:FormEvent<HTMLFormElement>) =>{
 
       event.preventDefault();
 
       try {
+        // Get form data
         const credentials = new FormData(event.currentTarget);
-
+        // Make a POST request to register a new user
         const signupResponse = await axios.post("/api/auth/signup", {
           name: credentials.get("name"),
           lastName: credentials.get("lastName"),
@@ -24,14 +26,15 @@ export default function Register() {
           password: credentials.get("password"),
         });
 
+        // Sign in the user after successful registration
         const response = await signIn('credentials',{
           email: signupResponse.data.email,
           password: credentials.get ("password"),
           redirect: false
         })
-
+         // Redirect to the home page if the sign-in is successful
         if (response?.ok) return router.push("/");
-        router.refresh()
+        router.refresh() // Refresh the page
       } catch (error) {
         console.error('Error submitting form:', error);
           if (error instanceof AxiosError) {

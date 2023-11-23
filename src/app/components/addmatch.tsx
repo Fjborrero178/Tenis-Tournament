@@ -10,6 +10,7 @@ export default function AddMatch(){
     
     const handleSubmit = async (event:FormEvent<HTMLFormElement>) =>{
 
+       // Form submission logic
       event.preventDefault();
 
       try {

@@ -1,5 +1,7 @@
 import { Schema, model, models } from "mongoose";
-
+/**
+ This section defines the schema for a match, specifying various properties like local, vistante, email, data,time,place. It also includes validation rules such as required fields and email format validation. 
+ */
 const MatchSchema = new Schema({
       local: {
         type: String,

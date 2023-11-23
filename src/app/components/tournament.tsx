@@ -1,7 +1,7 @@
 import axios,{AxiosError} from "axios"
 import { useState, FormEvent} from 'react'
 
-export default function Tournamentadmin(){
+export default function Tournamentadmin(){ //post tournament
 
     const [error, setError] = useState();
 
@@ -16,9 +16,7 @@ export default function Tournamentadmin(){
 
         const addmatch = await axios.post("/api/auth/tournament", {
           local: propertiesMatch.get("local"),
-          emaillocal: propertiesMatch.get("emaillocal"),
           visitante: propertiesMatch.get("visitante"),
-          emailvisitante: propertiesMatch.get("emailvisitante"),
           date: propertiesMatch.get("date"),
           time: propertiesMatch.get("time"),
           place: propertiesMatch.get("place"),
@@ -39,9 +37,7 @@ export default function Tournamentadmin(){
   return ( <div> <form onSubmit={handleSubmit}>
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <input type = "text" placeholder = " Local " name = "local"/>
-      <input type = "email" placeholder = " Local@email.com " name = "emaillocal"/>
       <input type = "text" placeholder = " Visitante " name ="visitante"/>
-      <input type = "email" placeholder = " Visitante@email.com " name = "emailvisitante"/>
       <input type = "date" placeholder= "Match Day" name = "date"/>
       <input type = "time" placeholder= "Match hour" name = "time"/>
       <input type = "text" placeholder = " Place " name = "place"/>

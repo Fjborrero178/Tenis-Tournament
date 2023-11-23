@@ -10,17 +10,20 @@ export async function PUT(request:Request,{ params }: { params: { id: string }})
     
     
     try {
-  
+     // Create an object with the updated tournament data
     const tournamentUpdate = {local,visitante}
-       const  aaa =  await Tournament.findByIdAndUpdate(id,tournamentUpdate)
-       console.log(aaa);
-        if(!tournamentUpdate){
+    
+       const  updatedTournament =  await Tournament.findByIdAndUpdate(id,tournamentUpdate)
+       //console.log(" updatedTournament" + updatedTournament);
+       // Check if the tournament was found and updated
+        if(!updatedTournament){
             return NextResponse.json( { message: `Document with ID: ${id} not found` }, { status: 404 });
         }
-        return NextResponse.json({data:tournamentUpdate}, {status:200})
+        // Return a JSON response with the updated tournament data
+        return NextResponse.json({data:updatedTournament}, {status:200})
     
       } catch (error) {
-        
+        // Log and return an error response in case of an exception
         return NextResponse.json({ data: null }, { status: 500 });
         
       }

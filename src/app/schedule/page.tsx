@@ -22,6 +22,7 @@ const [responseData, setResponseData] = useState<Match[]>([]);
 const [error, setError] = useState();
 const router =useRouter();
 
+// Fetch matches data from the API
   useEffect(() => {
     axios.get('/api/auth/match')
       .then(response => {

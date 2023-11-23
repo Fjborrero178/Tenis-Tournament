@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 const handler = NextAuth({
 
  providers: [
+    // Credentials Provider configuration
     CredentialsProvider({
         name: 'credentials',
         credentials: {
@@ -13,7 +14,7 @@ const handler = NextAuth({
             password: { label: "Password", type: "password" }
         },
         async authorize(credentials) {
-
+                // Authorization logic
             await connectDB();
                 
             const userFound = await User.findOne({ email:credentials?.email}).select("+password");
@@ -40,12 +41,13 @@ const handler = NextAuth({
 
     ],  pages: {
         signIn: "/login",
-        signOut: "/logout",
+        signOut: "/",
       },
       session: {
         strategy: "jwt",
       },
         callbacks: {
+             // JWT token and session callbacks
             async jwt({ token, user }) {
                 if (user) token.user = user;
                     return token;

@@ -7,20 +7,20 @@ import { useRouter } from "next/navigation";
 import { useState, FormEvent } from 'react'
 
 
-export default function Login() {
+export default function Login() { //login page 
  
   const [error, setError] = useState("");
 
   const router = useRouter();
 
     
-  const handleSubmit = async (event:FormEvent<HTMLFormElement>) =>{
+  const handleSubmit = async (event:FormEvent<HTMLFormElement>) =>{ //submit the data from the form
 
       event.preventDefault();
 
       const credentials = new FormData(event.currentTarget);
 
-      try {
+      try { //SignIn 
         const response = await signIn('credentials',{
           email: credentials.get ("email"),
           password: credentials.get ("password"),

@@ -14,7 +14,7 @@ interface Match {
     place: string;
   }
 
-export default function DeleteMatch (){
+export default function DeleteMatch (){  //Delete Match
 
       
     const [responseData, setResponseData] =useState<Match[]>([]);
@@ -23,11 +23,11 @@ export default function DeleteMatch (){
   useEffect(() => {
     axios.get('/api/auth/match')
       .then(response => {
-        console.log("Data fetched:", response.data);
+        //console.log("Data fetched:", response.data);
         (setResponseData(response.data));
       })
       .catch(error => {
-        console.error("Error fetching data:", error);
+        //console.error("Error fetching data:", error);
         if (error instanceof AxiosError) {
             const errorMessage = error.response?.data.message;
             setError(errorMessage);
@@ -43,7 +43,7 @@ export default function DeleteMatch (){
     console.log("Deleting");
     await axios.delete(`/api/delete/${id}`)
       .then(response => {
-        console.log("Match deleted:", response.data);
+        //console.log("Match deleted:", response.data);
         // Update the state or refetch data as needed
       })
       .catch(error => {
@@ -63,7 +63,7 @@ export default function DeleteMatch (){
         <div key={match._id} className="group relative">
           <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-40">
             <Image  
-              src="../vercel.svg" 
+              src="/tenismatch.jpg" 
               className=" object-fill  lg:h-full lg:w-full"
               width={500}
               height={500}

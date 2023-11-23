@@ -14,24 +14,23 @@ interface Player {
   place: string;
 }
 
-export default function Players (){
+export default function Players (){//Get all the player for show
 
   const [responseData, setResponseData] = useState<Player[]>([]);
-  const [error, setError] = useState();
+
 
   useEffect(() => {
 
-    axios.get('/api/auth/match')
+    axios.get('/api/auth/match') //component that get the players
     .then(response => {
         console.log("Data fetched:", response.data);
        (setResponseData(response.data));
-        console.log("Data fetched:",  typeof response.data)
+        console.log("Data fetched:",  response.data)
       })
       .catch(error => {
         console.error("Error fetching data:", error);
         if (error instanceof AxiosError) {
             const errorMessage = error.response?.data.message;
-            setError(errorMessage);
           // Handle error, show an error message to the user
         }
     });

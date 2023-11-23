@@ -87,27 +87,27 @@ export default function Tournament (){
                   <h3 className="text-sm text-gray-900">
                      
                     <a>
-                      {!tournament.local? <div> 
+                      {!tournament.local &&!tournament.visitante?<div> 
                         <input type="text" 
                         onChange={handleChange} 
                         value={local} 
                         name="local"
                         placeholder="Participante 1"/>
-                      <button className =" bg-blue-600 w-auto hover:bg-blue-800 text-white font-bold py-1  px-1 rounded-full"onClick={() => handlePost(tournament._id)}> Parcticipate</button>
-                      </div>: <div> {tournament.local.toUpperCase()} </div> } 
-                      <a> {!tournament.visitante?<div><input type="text" 
+                        <input type="text" 
                       onChange={handleVisitanteChange} 
                       value={visitante} 
                       name="visitante" 
                       placeholder="Participante 2"/>
                       <button className =" bg-blue-600 w-auto hover:bg-blue-800 text-white font-bold py-1  px-1 rounded-full"
                       onClick={() => handlePost(tournament._id)}> Parcticipate</button>
-                      </div>:<div> {tournament.visitante.toUpperCase()}</div>}</a>
+                      </div>: <div> {tournament.local.toUpperCase()} Vs {tournament.visitante.toUpperCase()} </div> } 
+                      
                     </a>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{tournament.place.toUpperCase()}</p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">Day: {tournament.date} Hour: {tournament.time}</p>
+                <p className="text-sm font-medium text-gray-900">
+                  Day: {tournament.date} Hour: {tournament.time}</p>
               </div>
             </div>
           ))}
